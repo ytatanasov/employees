@@ -1,0 +1,15 @@
+.EmployeeWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  max-height: calc(100vh - 80px);
+  height: 700px;
+  margin: 0 auto;
+  padding: 15px;
+
+  @media only screen and (max-width: 480px) {
+    height: initial;
+    padding-top: 30px;
+  }
+}

@@ -1,0 +1,19 @@
+.Navigation {
+  li {
+    padding: 0 5px;
+
+    a {
+      padding: 5px 0;
+      color: var(--color-dark);
+      transition: color ease 0.4s;
+
+      &.active {
+        border-bottom: 2px solid var(--color-primary);
+      }
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+}

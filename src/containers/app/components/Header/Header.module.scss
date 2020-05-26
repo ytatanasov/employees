@@ -1,0 +1,51 @@
+.HeaderContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  margin: 0 auto;
+  color: var(--color-primary);
+  background-color: var(--color-lite);
+  box-shadow: 2px 3px 10px var(--color-boxshadow-primary);
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    padding: 0 15px;
+
+    .navigationContainer {
+      display: flex;
+      align-items: center;
+    }
+
+    .logoContainer {
+      width: 200px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    height: 120px;
+
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 15px;
+
+      .navigationContainer {
+        align-self: center;
+      }
+    }
+  }
+}
