@@ -6,16 +6,16 @@ import Button from '../../Button/Button';
 
 import styles from './Confirmation.module.scss'
 
-const Confirmation = ({ message, success, isModalShown, toggleModal }) => (
+const Confirmation = ({ message, success, isModalShown, closeModal }) => (
   <Modal
     title="Confirmation"
     isModalShown={isModalShown}
-    toggleModal={toggleModal}
+    closeModal={closeModal}
   >
     <div className={styles.message}>{message}</div>
     <div className={styles.buttons}>
       <Button handleClick={success} content="Yes" />
-      <Button handleClick={toggleModal} danger content="No" />
+      <Button handleClick={closeModal} danger content="No" />
     </div>
   </Modal>
 );
@@ -24,7 +24,7 @@ Confirmation.propTypes = {
   message: PropTypes.string,
   isModalShown: PropTypes.bool,
   success: PropTypes.func,
-  toggleModal: PropTypes.func
+  closeModal: PropTypes.func
 };
 
 export default Confirmation;

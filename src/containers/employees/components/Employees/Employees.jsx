@@ -18,7 +18,7 @@ const Employees = ({ changeTmpEmployee }) => {
   const [filterValue, setFilterValue] = useState('');
 
   const history = useHistory();
-  const { isModalShown, toggleModal } = useModal();
+  const { isModalShown, openModal, closeModal } = useModal();
 
   /**
    * Gets employees and updates state
@@ -101,7 +101,7 @@ const Employees = ({ changeTmpEmployee }) => {
    */
   const openConfirmationModal = employeeId => {
     setEmployeeToDeleteId(employeeId);
-    toggleModal(true);
+    openModal();
   };
 
   /**
@@ -113,7 +113,7 @@ const Employees = ({ changeTmpEmployee }) => {
    */
   const deleteEmployee = async employeeId => {
     await employeeDelete(employeeId);
-    toggleModal(false);
+    closeModal();
     await getEmployees();
   };
 
@@ -123,7 +123,7 @@ const Employees = ({ changeTmpEmployee }) => {
         message={`Are you sure want to remove this employee?`}
         success={() => deleteEmployee(employeeToDeleteId)}
         isModalShown={isModalShown}
-        toggleModal={toggleModal}
+        closeModal={closeModal}
       />
       <Table
         title="Employees"

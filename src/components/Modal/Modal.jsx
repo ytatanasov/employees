@@ -10,7 +10,7 @@ const Modal = ({
   isModalShown,
   title,
   children,
-  toggleModal
+  closeModal
 }) => {
   const modalEl = useRef(null);
 
@@ -28,7 +28,7 @@ const Modal = ({
           <div ref={modalEl} className={styles.modal}>
             <div className={styles.header}>
               <h1>{title}</h1>
-              <Button handleClick={() => toggleModal(false)} md icon lite content="&times;" />
+              <Button handleClick={closeModal} md icon lite content="&times;" />
             </div>
             {children}
           </div>
@@ -44,7 +44,7 @@ Modal.propTypes = {
   title: PropTypes.string,
   isModalShown: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  toggleModal: PropTypes.func
+  closeModal: PropTypes.func
 };
 
 export default Modal;

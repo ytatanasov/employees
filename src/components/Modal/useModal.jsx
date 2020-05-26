@@ -4,16 +4,23 @@ const useModal = () => {
   const [isModalShown, setIsModalShown] = useState(false);
 
   /**
-   * Updates `isModalShown` in state by given value
-   * @param {Boolean} value
+   * Set isModalShown to false
    */
-  const toggleModal = value => {
-    setIsModalShown(value);
+  const closeModal = () => {
+    setIsModalShown(false);
+  };
+
+  /**
+   * Set isModalShown to true
+   */
+  const openModal = () => {
+    setIsModalShown(true);
   };
 
   return {
     isModalShown,
-    toggleModal
+    closeModal,
+    openModal
   }
 };
 

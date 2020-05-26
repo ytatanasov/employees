@@ -14,7 +14,7 @@ import styles from './Employee.module.scss';
 
 const Employee = ({ changeTmpEmployee }) => {
   const [employee, setEmployee] = useState(null);
-  const { isModalShown, toggleModal } = useModal();
+  const { isModalShown, closeModal, openModal } = useModal();
   const { id } = useParams();
   const history = useHistory();
 
@@ -58,7 +58,7 @@ const Employee = ({ changeTmpEmployee }) => {
         message={`Are you sure want to remove this employee?`}
         success={() => deleteEmployee(employee.id)}
         isModalShown={isModalShown}
-        toggleModal={toggleModal}
+        closeModal={closeModal}
       />
       {employee
       && (
@@ -66,7 +66,7 @@ const Employee = ({ changeTmpEmployee }) => {
           defaultImage={defaultImage}
           actions={{
             edit: editEmployee,
-            delete: toggleModal
+            delete: openModal
           }}
           employee={employee}
         />
