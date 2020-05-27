@@ -8,7 +8,7 @@ import request from '../../utils/request';
  * @param {Number} id
  * @returns {Promise<*>}
  */
-export const employeeGet = async id => {
+export const employeeGet = async (id = null) => {
   const url = id
     ? `${URL_EMPLOYEE}/${id}`
     : URL_EMPLOYEE;
