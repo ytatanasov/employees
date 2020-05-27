@@ -7,17 +7,21 @@ import Button from '../../Button/Button';
 import styles from './Confirmation.module.scss'
 
 const Confirmation = ({ message, success, isModalShown, closeModal }) => (
-  <Modal
-    title="Confirmation"
-    isModalShown={isModalShown}
-    closeModal={closeModal}
-  >
-    <div className={styles.message}>{message}</div>
-    <div className={styles.buttons}>
-      <Button handleClick={success} content="Yes" />
-      <Button handleClick={closeModal} danger content="No" />
-    </div>
-  </Modal>
+  isModalShown
+    ? (
+      <Modal
+        title="Confirmation"
+        isModalShown={isModalShown}
+        closeModal={closeModal}
+      >
+        <div className={styles.message}>{message}</div>
+        <div className={styles.buttons}>
+          <Button handleClick={success} content="Yes" />
+          <Button handleClick={closeModal} danger content="No" />
+        </div>
+      </Modal>
+    )
+    : null
 );
 
 Confirmation.propTypes = {

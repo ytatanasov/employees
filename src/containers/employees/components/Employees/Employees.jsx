@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import Table from '../../../../components/Table/Table';
 import Confirmation from '../../../../components/Modal/Confirmation/Confirmation';
-import useModal from '../../../../components/Modal/useModal';
+import useModal from '../../../../utils/hooks/useModal';
 
 import { deepCopy, sortByValue } from '../../../../utils/helpers';
 import { ROUTES, TABLE_EMPLOYEES_HEADER } from '../../../../utils/constants';

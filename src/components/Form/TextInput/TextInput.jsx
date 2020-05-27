@@ -7,9 +7,11 @@ const TextInput = ({
   id,
   label,
   type = 'text',
-  value,
-  onChange = () => {},
-  onBlur = () => {},
+  value = '',
+  onChange = () => {
+  },
+  onBlur = () => {
+  },
   required,
   error,
   errorText
@@ -20,13 +22,11 @@ const TextInput = ({
   }
 
   return (
-    <div className={styles.TextInput}>
+    <div className={styles.TextInput} data-testid="text-input-wrapper">
       {label && (
         <label htmlFor={id}>
           {label}
-          <span className={styles.required}>
-          {required ? ' *' : ''}
-        </span>
+          {required && <span className={styles.required}> *</span>}
         </label>
       )}
       <input
@@ -44,10 +44,13 @@ const TextInput = ({
 };
 
 TextInput.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   required: PropTypes.bool,

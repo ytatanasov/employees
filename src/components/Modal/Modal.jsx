@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 
 import Button from '../Button/Button';
+import useEventListener from '../../utils/hooks/useEventListener';
 
 import styles from './Modal.module.scss';
 
@@ -15,9 +16,19 @@ const Modal = ({
   const modalEl = useRef(null);
 
   useEffect(() => {
-    isModalShown && (document.body.style.overflow = 'hidden');
-    !isModalShown && (document.body.style.overflow = 'unset');
-  }, [isModalShown]);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  });
+
+  const handleClickOutside = e => {
+    if (modalEl && modalEl.current && !modalEl.current.contains(e.target)) {
+      closeModal();
+    }
+  };
+
+  useEventListener('click', handleClickOutside, document);
 
   return (
     isModalShown

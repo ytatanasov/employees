@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import EmployeeCard from '../EmployeeCard/EmployeeCard';
 import Confirmation from '../../../../components/Modal/Confirmation/Confirmation';
-import useModal from '../../../../components/Modal/useModal';
+import useModal from '../../../../utils/hooks/useModal';
 
 import { ROUTES } from '../../../../utils/constants';
 import { employeeDelete, employeeGet } from '../../employee.service';

@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 const Actions = ({ actions, currentData, icons }) => (
   <>
     {
-      actions.edit && (
+      actions && actions.edit && (
         <Button
           icon={icons}
           md
@@ -16,7 +16,7 @@ const Actions = ({ actions, currentData, icons }) => (
         />
       )}
     {
-      actions.delete && (
+      actions && actions.delete && (
         <Button
           icon={icons}
           md

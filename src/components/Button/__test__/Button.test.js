@@ -17,7 +17,7 @@ describe('Button component test', () => {
   });
 
   it('renders text correctly', () => {
-    const { getByText } = render(<Button id={mockId} content={mockContent} />);
+    const { getByText } = render(<Button content={mockContent} />);
     expect(getByText(mockContent)).toBeInTheDocument();
   });
 
